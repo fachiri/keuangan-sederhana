@@ -6,6 +6,7 @@ use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\ImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,6 @@ Route::get('/laporan', [LaporanController::class, 'index']);
 Route::get('/export/excel/pemasukan', [ExportController::class, 'export_excel_pemasukan']);
 Route::get('/export/excel/pengeluaran', [ExportController::class, 'export_excel_pengeluaran']);
 Route::get('/export/excel/laporan', [ExportController::class, 'export_excel_laporan']);
+
+Route::post('/import/excel/pemasukan', [ImportController::class, 'export_excel_pemasukan']);
+Route::post('/import/excel/pengeluaran', [ImportController::class, 'export_excel_pengeluaran']);

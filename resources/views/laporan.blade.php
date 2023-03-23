@@ -24,7 +24,7 @@
     <h4>Laporan</h4>
     <a href="/export/excel/laporan" class="btn btn-success">
       <i class="fa-regular fa-file-excel"></i>
-      Excel
+      Export
     </a>
   </div>
   <div>

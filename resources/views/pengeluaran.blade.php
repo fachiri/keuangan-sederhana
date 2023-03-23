@@ -15,9 +15,13 @@
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h4>Pengeluaran</h4>
     <div>
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#import">
+        <i class="fa-regular fa-file-excel"></i>
+        Import
+      </button>
       <a href="/export/excel/pengeluaran" class="btn btn-success">
         <i class="fa-regular fa-file-excel"></i>
-        Excel
+        Export
       </a>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">
         <i class="fa-solid fa-plus"></i>
@@ -58,6 +62,27 @@
       </tbody>
     </table>
   </div>
+  {{-- import modal --}}
+  <div class="modal fade" id="import" tabindex="-1" aria-labelledby="importLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="importLabel">Import Pengeluaran</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <div class="modal-body">
+            <form action="/import/excel/pengeluaran" method="POST" class="input-group" enctype="multipart/form-data">
+              @csrf
+              <input type="file" name="file" id="file" class="form-control">
+              <button type="submit" class="btn btn-success">
+                <i class="fa-regular fa-file-excel"></i>
+                Import
+              </button>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
   {{-- add modal--}}
   <div class="modal fade" id="add" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -84,6 +109,7 @@
                 <option value="Panjar">Panjar</option>
                 <option value="Tanpa SPJ">Tanpa SPJ</option>
                 <option value="Hutang">Hutang</option>
+                <option value="Lunas">Lunas</option>
               </select>
             </div>
             <div class="mb-3">
@@ -134,6 +160,7 @@
                   <option value="Panjar" {{ $key->jenis == 'Panjar' ? 'selected' : ''}}>Panjar</option>
                   <option value="Tanpa SPJ" {{ $key->jenis == 'Tanpa SPJ' ? 'selected' : ''}}>Tanpa SPJ</option>
                   <option value="Hutang" {{ $key->jenis == 'Hutang' ? 'selected' : ''}}>Hutang</option>
+                  <option value="Lunas" {{ $key->jenis == 'Lunas' ? 'selected' : ''}}>Lunas</option>
                 </select>
               </div>
               <div class="mb-3">

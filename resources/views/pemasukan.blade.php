@@ -15,9 +15,13 @@
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h4>Pemasukan</h4>
     <div>
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#import">
+        <i class="fa-regular fa-file-excel"></i>
+        Import
+      </button>
       <a href="/export/excel/pemasukan" class="btn btn-success">
         <i class="fa-regular fa-file-excel"></i>
-        Excel
+        Export
       </a>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">
         <i class="fa-solid fa-plus"></i>
@@ -51,6 +55,27 @@
         @endforeach
       </tbody>
     </table>
+  </div>
+  {{-- import modal --}}
+  <div class="modal fade" id="import" tabindex="-1" aria-labelledby="importLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="importLabel">Import Pemasukan</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <div class="modal-body">
+            <form action="/import/excel/pemasukan" method="POST" class="input-group" enctype="multipart/form-data">
+              @csrf
+              <input type="file" name="file" id="file" class="form-control">
+              <button type="submit" class="btn btn-success">
+                <i class="fa-regular fa-file-excel"></i>
+                Import
+              </button>
+            </form>
+          </div>
+      </div>
+    </div>
   </div>
   {{-- add modal--}}
   <div class="modal fade" id="add" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true">
